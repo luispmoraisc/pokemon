@@ -1,0 +1,23 @@
+<div class="sidebar" [ngClass]="{'collapsed' : collapse}">	
+	<div class="area-user">
+		<a class="hidden-sm hidden-md hidden-lg collapseBtn" (click)="collapseLayout()"><i class="icon-cancel"></i></a>
+		<div class="image-user">
+			<div class="box-image">
+				<img src="./assets/img/user.jpg" class="w100p" />
+			</div>			
+		</div>
+		<div class="name-user">
+			<h4>Ash Ketchum</h4>
+		</div>
+	</div>
+	<div class="menu">
+		<ul>
+			<li *ngFor="let itens of menu" routerLinkActive="active">
+				<a [routerLink]="['/' + itens.link]">
+					<i class="{{itens.icon}}"></i>					
+					<span>{{itens.label}}</span>
+				</a>
+			</li>											
+		</ul>
+	</div>	
+</div>

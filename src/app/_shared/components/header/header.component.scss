@@ -1,0 +1,152 @@
+@import "../../../../styles.scss";
+
+nav{
+	background: map-get($colors, amarelo);	
+	border-bottom: 1px solid rgba(150,150,10,0.1);
+
+	.navbar-brand{
+		height: 70px;	
+		width: 252px;
+		padding: 10px 15px;
+		background: rgba(150,150,150,0.1);
+		img{
+			margin: 0 auto;
+		}		
+	}	
+
+	.btn-collapse{
+		float: left;
+		position: relative;
+		z-index: 1;
+		a{
+			line-height: 50px;
+			color:#000;			
+			font-size: 16px;
+			display: block;
+			padding: 10px;
+		}
+	}
+
+	.navbar-nav{
+		position: relative;
+		li{
+			.access{
+				line-height: 70px;
+				font-size: 12px;
+				font-family: map-get($fonts,MyriadPro);
+				margin-right: 10px
+			}
+			a{				
+				line-height: 40px;	
+				padding: 11px 15px;				
+				i{
+					color: #000;
+				}
+
+			}
+
+			&:hover a i{
+				color: #000;
+			}
+
+			.dropdown-menu{
+				min-width: 200px;
+				li{
+					position: relative;
+					a{
+						line-height: 30px !important;
+						font-family: map-get($fonts, MyriadRegular);
+						padding: 5px 15px 5px 30px;						
+						font-size: 14px;						
+						i{
+							position: absolute;
+							top: 5px;
+							left: 5px;							
+						}
+
+						&:hover{
+							background: rgba(150,150,150,0.1);
+						}
+					}										
+				}
+
+				.divider{
+					margin: 0px;
+				}
+			}
+
+			&:hover{
+				a{
+					background: transparent;
+				}
+			}
+
+			&:last-child a{
+				color:#000;
+				font-family: map-get($fonts, MyriadRegular);
+				font-size: 12px;
+			}
+		}
+
+		.form-group{
+			position: relative;
+			margin-top: 17px;
+			min-width: 250px;
+			.form-control{
+				border: 0px;
+				box-shadow: 0px 0px 0px transparent;
+				font-family: map-get($fonts, MyriadPro);
+
+				&:focus{
+					box-shadow: 0px 0px 0px transparent;
+					background: rgba(150,150,150,0.1);
+				}
+			}
+
+			a{
+				position: absolute;
+				top: 5px;
+				right: 5px;
+				color: #000;
+				font-size: 16px;
+			}
+		}
+	}
+
+	.collapsed{
+		width: 70px;
+		padding: 10px;
+		transition: 0.6s;
+	}
+}
+
+@media(max-width: 768px){
+	.navbar-toggle{
+		position: absolute;
+	    right: 10px;
+	    top: 2px;
+	    font-size: 23px;
+	}
+
+	.navbar-brand{
+		width: 100% !important;
+	}
+
+	.navbar-right{
+		float: right;
+
+		li{
+			display: inline-block;
+		}
+	}
+
+	.navbar-nav .dropdown .dropdown-menu{
+		position: absolute;
+		left: -30px;
+		background: #fff;
+		box-shadow: 0 6px 12px rgba(0,0,0,.175);
+		li{
+			display: block;
+		}
+	}
+}

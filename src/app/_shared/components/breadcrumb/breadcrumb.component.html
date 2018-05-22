@@ -1,0 +1,10 @@
+<div class="breadcrumb">
+	<ul>
+		<li *ngFor="let item of all; index as i">
+			<i *ngIf="i === 0" class="{{item.icon}}"></i>
+			<a [routerLink]="['/' + item.link]">{{item.label}}</a>
+		</li>
+	</ul>
+</div>
+
+<div class="clear h20"></div>

@@ -1,0 +1,94 @@
+<div class="col-sm-6 mb30">	
+	<div class="col-xs-12 tac boxPrincipal">
+		<img src="{{img_principal}}" class="w70p" />
+	</div>
+	<div class="col-xs-3 c-p miniatura">
+		<img src="{{images.front_default}}" (click)="mudaImagem(images.front_default)" class="w100p" />
+	</div>
+	<div class="col-xs-3 c-p miniatura">
+		<img src="{{images.back_default}}" (click)="mudaImagem(images.back_default)" class="w100p" />
+	</div>
+	<div class="col-xs-3 c-p miniatura">
+		<img src="{{images.front_shiny}}" (click)="mudaImagem(images.front_shiny)" class="w100p" />
+	</div>
+	<div class="col-xs-3 c-p miniatura">
+		<img src="{{images.back_shiny}}" (click)="mudaImagem(images.back_shiny)" class="w100p" />
+	</div>
+</div>
+
+<div class="col-sm-6">	
+	<h3 class="tac">Ficha Técnica:</h3>
+	<div class="panel-group" id="accordionHabilidades" role="tablist" aria-multiselectable="true">
+		<div class="panel panel-default">
+			<div class="panel-heading" role="tab" id="panelParticulars">
+				<h4 class="panel-title">
+					<a role="button" data-toggle="collapse" data-parent="#accordionHabilidades" href="#Particulars" aria-expanded="true" aria-controls="Particulars">
+						Particulars:
+					</a>
+				</h4>
+			</div>
+			<div id="Particulars" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="panelParticulars">
+				<div class="panel-body">
+					<div class="row">
+						<div class="col-sm-12"><b>Nome: </b>{{name}}</div>
+						<div class="col-sm-12"><b>Altura:</b>{{height}}</div>
+						<div class="col-sm-12"><b>Peso:</b>{{weight}}</div>
+					</div>						
+				</div>
+			</div>
+		</div>			
+		<div class="panel panel-default">
+			<div class="panel-heading" role="tab" id="panelHabilidades">
+				<h4 class="panel-title">
+					<a role="button" data-toggle="collapse" data-parent="#accordionHabilidades" href="#habilidades" aria-expanded="false" aria-controls="habilidades">
+						Abilities:
+					</a>
+				</h4>
+			</div>
+			<div id="habilidades" class="panel-collapse collapse" role="tabpanel" aria-labelledby="panelHabilidades">
+				<div class="panel-body">
+					<div class="row" *ngFor="let ability of abilities">
+						<div class="col-sm-12">
+							<span>{{ability.ability.name}}</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="panel panel-default">
+			<div class="panel-heading" role="tab" id="panelStats">
+				<h4 class="panel-title">
+					<a role="button" data-toggle="collapse" data-parent="#accordionHabilidades" href="#stats" aria-expanded="false" aria-controls="stats">
+						Stats:
+					</a>
+				</h4>
+			</div>
+			<div id="stats" class="panel-collapse collapse" role="tabpanel" aria-labelledby="panelStats">
+				<div class="panel-body">
+					<div class="row" *ngFor="let stat of stats; index as i" [ngClass]="{'dark' : (i % 2) === 0}">
+						<div class="col-sm-4">{{stat.stat.name}}</div>
+						<div class="col-sm-4">{{stat.base_stat}}</div>
+						<div class="col-sm-4">{{stat.effort}}</div>
+					</div>						
+				</div>
+			</div>
+		</div>	
+		<div class="panel panel-default">
+			<div class="panel-heading" role="tab" id="panelTypes">
+				<h4 class="panel-title">
+					<a role="button" data-toggle="collapse" data-parent="#accordionHabilidades" href="#Types" aria-expanded="false" aria-controls="Types">
+						Types:
+					</a>
+				</h4>
+			</div>
+			<div id="Types" class="panel-collapse collapse" role="tabpanel" aria-labelledby="panelTypes">
+				<div class="panel-body">
+					<div class="row" *ngFor="let type of types">
+						<div class="col-sm-12">{{type.type.name}}</div>						
+					</div>						
+				</div>
+			</div>
+		</div>			
+	</div>	
+</div>
+<div class="clear"></div>

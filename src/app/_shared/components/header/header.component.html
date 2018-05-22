@@ -1,0 +1,41 @@
+<nav class="navbar navbar-fixed-top">
+	<div class="container-fluid">    	
+    	<div class="navbar-header">      	    		
+      		<a class="navbar-brand" [ngClass]="{'collapsed' : collapse}" href="#">
+      			<img *ngIf="collapse === false" src="./assets/img/logo.png" class="w150" />
+                <img *ngIf="collapse" src="./assets/img/pokegif.gif" class="h50" />
+      		</a>
+    	</div>		    	
+
+        <div class="btn-collapse">
+            <a class="c-p" (click)="collapseLayout()">
+                <i class="icon-menu-1"></i>
+            </a>
+        </div>
+
+    	<ul class="nav navbar-nav navbar-right pr15">
+    		<li class="dropdown">    			
+    			<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> 
+                    <img src="./assets/img/user.jpg" class="img-circle w48 mr10" />   
+                    <span>Ash Ketchum</span>                
+    				<i class="icon-down-open-mini"></i>
+    			</a>
+    			<ul class="dropdown-menu animated flipInY">
+    				<li>
+                        <a href="#"><i class="icon-user-1"></i>Perfil</a>
+                    </li>
+    				<li>
+                        <a href="#"><i class="icon-tags"></i>Tarefas</a>
+                    </li>
+    				<li>
+                        <a href="#"><i class="icon-chat"></i>Mensagens</a>
+                    </li>
+    				<li role="separator" class="divider"></li>
+    				<li>
+                        <a href="#"><i class="icon-logout-1"></i>Logout</a>
+                    </li>
+    			</ul>
+    		</li>    			
+    	</ul>    	
+	</div><!-- /.container-fluid -->
+</nav>

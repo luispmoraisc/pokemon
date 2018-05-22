@@ -1,0 +1,70 @@
+@import "../../../styles.scss";
+
+.contentDashboard{
+	position: relative;
+	padding: 20px 0px;
+
+	.filter{
+		position: relative;
+		display: inline-block;
+
+		label{
+			font-family: map-get($fonts, MyriadRegular);
+		}
+
+		.form-control{
+			display: inline-block;
+			border-radius: 0px;
+			border: 0px;
+			background: #e3e3e3;
+
+			&:focus{
+				border-bottom: 2px solid map-get($colors, amarelo);
+				box-shadow: 0px 0px 0px transparent;				
+			}
+		}
+	}
+
+
+	.card-pokemon{
+		background: #fff;
+		text-align: center;
+		margin-bottom: 30px;
+		padding: 15px;
+		box-shadow: 0px 5px 10px rgba(0,0,0,0.1);
+
+		h4{
+			font-family: map-get($fonts, MyriadPro);
+			text-transform: capitalize;
+		}
+
+		img{
+			transition: 0.6s;
+			-webkit-filter: grayscale(100%);
+    		filter: grayscale(100%);
+		}
+
+		&:hover{
+			cursor: pointer;
+			img{				
+				-webkit-filter: grayscale(0%);
+    			filter: grayscale(0%);
+    			transform: scale(1.4);
+			}
+		}
+	}
+
+	.footerNavigation{
+		.active{
+			background: map-get($colors, amarelo);
+		}
+	}
+
+	.footerNavigation .col-sm-6:first-child{
+		font-family: map-get($fonts, MyriadRegular);
+		.active{
+			background: map-get($colors, amarelo);
+			color: #000;
+		}
+	}
+}

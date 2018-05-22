@@ -1,0 +1,58 @@
+<app-breadcrumb [local]="'Dashboard'" [all]="map"></app-breadcrumb>
+
+<div class="contentDashboard">
+	<div class="col-xs-12">
+		<div class="filter">
+			<label>Mostrar</label>
+			<select class="form-control w70" #grid (change)="elementsInGrid(grid.value)">
+				<option *ngFor='let n of amostras' value="{{n.key}}">{{n.key}}</option>
+			</select>
+			<label> itens</label>
+		</div>	
+		<div class="filter flr">
+			<input type="text" class="form-control" placeholder="Pesquisar.." [(ngModel)]="filterString"/>
+		</div>	
+	</div>		
+	<div class="clear h20"></div>
+	<div class="col-sm-6 col-md-3" *ngFor="let pokemon of pokemons | filter: filterString:pokemons | slice:start:end; index as i;">
+		<div class="card-pokemon" routerLink="/detail/{{pokemon.id}}">
+			<img src="{{urlImage + pokemon.id}}.png" class="w100" />
+			<h4>{{pokemon.name}}</h4>
+		</div>
+	</div>
+	
+	<h1 *ngIf="(pokemons | filter : filterString : pokemons).length === 0" class="tac">Nenhum resultado encontrado.</h1>
+
+	<div class="clear"></div>
+	<div class="footerNavigation col-xs-12">
+		<div class="col-sm-6 mt10 p0">
+			<div class="fll w50">Página</div>
+			<div class="fll tac OpenSansB">
+				{{pagAtual}} 
+				<span class="OpenSansL">de</span> 
+				{{nPages}}
+			</div>			
+		</div>		
+		<div class="col-sm-6 tar mt10 p0">
+			<nav aria-label="Page navigation">
+				<ul class="pagination m0 OpenSansSB">
+					<li>
+						<a class="c-p bg-vagua" aria-label="Previous" (click)="PrevPage()">
+							<span aria-hidden="true"><i class="icon-left-big"></i></span>
+						</a>
+					</li>
+					<li *ngFor='let pag of pagination | slice : pStart : pEnd'>
+						<a *ngIf="pagAtual === pag.pag" class="p-e active">{{pag.pag}}</a>
+						<a *ngIf="pagAtual !== pag.pag" class="c-p" (click)="mudarPagina(pag.pag)">{{pag.pag}}</a>
+					</li>
+					<li>
+						<a class="c-p bg-vagua" aria-label="Next" (click)="NextPage()">
+							<span aria-hidden="true"><i class="icon-right-big"></i></span>
+						</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<div class="clear"></div>
